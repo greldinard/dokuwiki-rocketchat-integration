@@ -1,3 +1,3 @@
 <?php
   $lang['namespaces'] = "Namespaces (comma-separated)";
-  $lang['webhook']    = "Slack Incoming Webhook URL";
+  $lang['webhook']    = "Rocket.Chat+ Incoming Webhook URL";

@@ -1,7 +1,7 @@
-base   slacknotifier
-author Eevol
-email  thierry@eevol.lu
-date   2016-06-09
-name   Slack Notifier
-desc   Notify via Slack when articles are updated
-url    http://www.github.com/littleiffel/dokuwiki-slack-integration/
+base   rocketchatnotifier
+author cmol
+email  claus@fab-it.dk
+date   2016-07-29
+name   Rocket.Chat+ Notifier
+desc   Notify via Rocket.Chat+ when articles are updated
+url    https://github.com/Fab-IT-ApS/dokuwiki-rocketchat-integration
