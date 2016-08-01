@@ -22,7 +22,9 @@ class action_plugin_rocketchatnotifier extends DokuWiki_Action_Plugin {
 
   function handle_action_act_preprocess(Doku_Event $event, $param) {
     if (isset($event->data['save'])) {
-      $this->handle();
+      if ($event->data['save'] == $lang['btn_save']) {
+        $this->handle();
+      }
     }
     return;
   }
@@ -64,11 +66,10 @@ class action_plugin_rocketchatnotifier extends DokuWiki_Action_Plugin {
     // attachments
     if (!empty($SUM)) {
       $data['attachments'] = array(array(
-        "title_link"       = > "{$this->urlize()}",
-        "title"            = > "Summary",
-        "text"             = > "{$SUM}\n- {$fullname}",
-        "image_url"        = > "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Dokuwiki_logo.svg/128px-Dokuwiki_logo.svg.png",
-        "color"            = > "#AB4531"
+        "title_link"       => "{$this->urlize()}",
+        "title"            => "Summary",
+        "text"             => "{$SUM}\n- {$fullname}",
+        "color"            => "#AB4531"
       ));
     }
 
@@ -100,8 +101,9 @@ class action_plugin_rocketchatnotifier extends DokuWiki_Action_Plugin {
     }
 
     // submit payload
+    $pay = urlencode($json);
     curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-    curl_setopt($ch, CURLOPT_POSTFIELDS, array('payload' => $json));
+    curl_setopt($ch, CURLOPT_POSTFIELDS, "payload={$pay}");
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     $result = curl_exec($ch);
 
