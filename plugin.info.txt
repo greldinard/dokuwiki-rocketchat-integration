@@ -1,7 +1,7 @@
 base   rocketchatnotifier
 author cmol
 email  claus@fab-it.dk
-date   2016-07-29
+date   2016-08-01
 name   Rocket.Chat+ Notifier
 desc   Notify via Rocket.Chat+ when articles are updated
 url    https://github.com/Fab-IT-ApS/dokuwiki-rocketchat-integration
