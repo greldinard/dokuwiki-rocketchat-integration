@@ -4,6 +4,9 @@ A DokuWiki plugin that notifies a Rocket.Chat channel room of wiki edits.
 
 [Link to project page on dokuwiki.org](https://www.dokuwiki.org/plugin:rocketchatnotifier)
 
+## Slack support
+A user has reported the plugin to also work with Slack, where the plugin comes from originally. It should be a drop in replacement, but if you try this, please report back with the results.
+
 ## Dependency
 
 This tool depends on php-curl (and by that also curl).
