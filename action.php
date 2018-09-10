@@ -21,10 +21,8 @@ class action_plugin_rocketchatnotifier extends DokuWiki_Action_Plugin {
   }
 
   function handle_action_act_preprocess(Doku_Event $event, $param) {
-    if (isset($event->data['save'])) {
-      if ($event->data['save'] == $lang['btn_save']) {
-        $this->handle();
-      }
+    if ($event->data == 'save') {
+      $this->handle();
     }
     return;
   }
