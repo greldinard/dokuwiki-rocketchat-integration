@@ -1,5 +1,7 @@
 # DokuWiki Rocket.Chat+ Notifier
 
+**NOTE: This repo is unmaintained, as we no longer use Dokuwiki**
+
 A DokuWiki plugin that notifies a Rocket.Chat channel room of wiki edits.
 
 [Link to project page on dokuwiki.org](https://www.dokuwiki.org/plugin:rocketchatnotifier)
