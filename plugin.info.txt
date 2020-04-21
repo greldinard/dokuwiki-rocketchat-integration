@@ -1,7 +1,7 @@
-base   rocketchatnotifier
-author cmol
-email  claus@fab-it.dk
-date   2016-08-01
-name   Rocket.Chat+ Notifier
-desc   Notify via Rocket.Chat+ when articles are updated
-url    https://github.com/Fab-IT-ApS/dokuwiki-rocketchat-integration
+base   webexteamsnotifier
+author oleh
+email  oleh@ollismail.de
+date   2020-04-20
+name   Webex Teams Notifier
+desc   Notify via Webex Teams when articles are updated
+url    https://github.com/greldinard/dokuwiki-webex-teams-integration
