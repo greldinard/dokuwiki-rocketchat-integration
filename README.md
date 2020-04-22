@@ -8,7 +8,9 @@ This tool depends on php-curl (and by that also curl).
 
 ## Install
 
-Clone the repository into your DokuWiku plugins folder:
+See instructions at: https://www.dokuwiki.org/plugin:webexteamsnotifier
+
+Or simply clone the repository into your DokuWiku plugins folder:
 
 ```
 $ git clone https://github.com/greldinard/dokuwiki-rocketchat-integration.git /var/lib/dokuwiki/lib/plugins/webexteamsnotifier
