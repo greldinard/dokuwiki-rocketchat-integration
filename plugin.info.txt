@@ -1,7 +1,7 @@
 base   webexteamsnotifier
 author greldinard
-email  oleh@ollismail.de
-date   2020-04-20
+email  dokuwiki@ollismail.de
+date   2020-04-21
 name   Webex Teams Notifier
 desc   Notify via Webex Teams when articles are updated
 url    https://github.com/greldinard/dokuwiki-webex-teams-integration
