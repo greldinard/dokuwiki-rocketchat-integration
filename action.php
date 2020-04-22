@@ -34,7 +34,8 @@ class action_plugin_webexteamsnotifier extends DokuWiki_Action_Plugin {
     global $INFO;
     global $SUM;
 
-    // filter by namespaces
+    // if there is at least one namespace specified in the configuration section, only take action if the triggered
+    // namespace is in the list
     $ns = $this->getConf('namespaces');
     if (!empty($ns)) {
       $namespaces = explode(',', $ns);
@@ -47,32 +48,22 @@ class action_plugin_webexteamsnotifier extends DokuWiki_Action_Plugin {
     // title
     $fullname = $INFO['userinfo']['name'];
     $page     = $INFO['namespace'] . $INFO['id'];
-    $title    = "{$fullname} updated page <{$this->urlize()}|{$INFO['id']}>";
+    $title    = "{$fullname} updated page [{$INFO['id']}]({$this->urlize()})";
 
     // compare changes
     $changelog = new PageChangeLog($ID);
     $revArr = $changelog->getRevisions(-1, 1);
     if (count($revArr) == 1) {
-      $title .= " (<{$this->urlize($revArr[0])}|Compare changes>)";
+      $title .= " ([Compare changes]({$this->urlize($revArr[0])}))";
     }
 
-    // text
+    // markdown
     $data = array(
-      "text"                  =>  $title
+      "markdown"                  =>  $title
     );
 
-    // attachments
-    /*if (!empty($SUM)) {
-      $data['attachments'] = array(array(
-        "title_link"       => "{$this->urlize()}",
-        "title"            => "Summary",
-        "text"             => "{$SUM}\n- {$fullname}",
-        "color"            => "#AB4531"
-      ));
-    }*/
     if (!empty($SUM)) {
-      $wturl = ;
-      $data = array("text" => "{$title}\n {$this->urlize()}\n {$SUM}\n- {$fullname}");
+      $data = array("markdown" => "{$title}\n\n{$SUM}");
     }
 
     // encode data
@@ -106,7 +97,6 @@ class action_plugin_webexteamsnotifier extends DokuWiki_Action_Plugin {
     curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
 
     // submit payload
-    //$pay = urlencode($json);
     curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
     curl_setopt($ch, CURLOPT_POSTFIELDS, "{$json}");
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -127,6 +117,8 @@ class action_plugin_webexteamsnotifier extends DokuWiki_Action_Plugin {
     global $conf;
     global $INFO;
 
+    // Evaluating the userrewrite and useslash configuration to create proper URL,
+    // for details see: https://www.dokuwiki.org/config:userewrite and https://www.dokuwiki.org/config:useslash
     switch($conf['userewrite']) {
     case 0:
       if (!empty($diffRev)) {
